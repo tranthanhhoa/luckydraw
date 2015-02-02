@@ -6,7 +6,8 @@ class ControllerBase extends Controller
 {
 	public function initialize()
 	{
-		$this->assets->addCss("css/style.css");
-		$this->assets->addJs("js/main.js");
+		$this->assets->addJs("js/jquery.js");
+		$this->assets->addJs("js/jquery-migrate-1.2.1.min.js");
+		$this->assets->addJs("js/jquery.tinysort.js");
 	}
 }
