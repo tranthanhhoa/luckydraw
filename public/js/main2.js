@@ -194,7 +194,7 @@ var wheel = {
             canvas = G_vmlCanvasManager.initElement(canvas);
         }
 
-        canvas.addEventListener("click", wheel.spin, false);
+        document.getElementById("btn-spin").addEventListener("click", wheel.spin, false);
         wheel.canvasContext = canvas.getContext("2d");
     },
 
