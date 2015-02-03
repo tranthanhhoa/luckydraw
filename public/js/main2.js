@@ -6,7 +6,7 @@ shuffle = function(o) {
 
 String.prototype.hashCode = function() {
     // See http://www.cse.yorku.ca/~oz/hash.html        
-    var hash = 5381;
+    var hash = 5381, i,char;
     for (i = 0; i < this.length; i++) {
         char = this.charCodeAt(i);
         hash = ((hash << 5) + hash) + char;
@@ -19,8 +19,8 @@ Number.prototype.mod = function(n) {
     return ((this % n) + n) % n;
 }
 
-// List of venues. These are foursquare IDs, with the idea that eventually it'll tie in 
-venues = {
+// List of members. These are foursquare IDs, with the idea that eventually it'll tie in
+members = {
     "116208": "Jerry's Subs and Pizza",
     "66271": "Starbucks",
     "5518": "Ireland's Four Courts",
@@ -42,8 +42,8 @@ venues = {
 
 $(function() {
 
-    var venueContainer = $('#venues ul');
-    $.each(venues, function(key, item) {
+    var venueContainer = $('#members ul');
+    $.each(members, function(key, item) {
         venueContainer.append(
         $(document.createElement("li")).append(
         $(document.createElement("input")).attr({
@@ -74,7 +74,7 @@ $(function() {
         }).text(item)))
     });
 
-    $('#venues ul>li').tsort("input", {
+    $('#members ul>li').tsort("input", {
         attr: "value"
     });
 });
@@ -351,14 +351,14 @@ var wheel = {
         ctx.lineWidth = 10;
         ctx.strokeStyle = '#000000';
         ctx.stroke();
-    },
+    }
 }
 
 window.onload = function() {
     wheel.init();
 
     var segments = new Array();
-    $.each($('#venues input:checked'), function(key, cbox) {
+    $.each($('#members input:checked'), function(key, cbox) {
         segments.push(cbox.value);
     });
 
